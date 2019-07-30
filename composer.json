@@ -3,7 +3,10 @@
     "description": "Easily retrieve the ssl certificate for any host",
     "keywords": [
         "joelwmale",
-        "ssl-certificate"
+        "php",
+        "ssl",
+        "certificate",
+        "laravel"
     ],
     "homepage": "https://github.com/joelwmale/php-ssl-certificate",
     "license": "MIT",
