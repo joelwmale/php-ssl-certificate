@@ -1,0 +1,46 @@
+{
+    "name": "joelwmale/php-ssl-certificate",
+    "description": "Easily retrieve the ssl certificate for any host",
+    "keywords": [
+        "joelwmale",
+        "ssl-certificate"
+    ],
+    "homepage": "https://github.com/joelwmale/php-ssl-certificate",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joel Male",
+            "email": "joel@joelmale.com"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.2",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "nesbot/carbon": "^1.15|^2.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "^3.0",
+        "phpunit/phpunit": "^8.0",
+        "tightenco/collect": "^5.8"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Joelwmale\\SslCertificate\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Joelwmale\\SslCertificate\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/codecept run"
+    }
+}

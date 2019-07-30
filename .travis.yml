@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - 7.1
+  - 7.2
+
+cache:
+  paths:
+  - vendor/
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+
+script:
+  - vendor/bin/codecept run
