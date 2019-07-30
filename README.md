@@ -1,5 +1,7 @@
 # Easily retrieve the ssl certificate for any host
 
+[![Build Status](https://travis-ci.org/joelwmale/php-ssl-certificate.svg?branch=master)](https://travis-ci.org/joelwmale/php-ssl-certificate)
+
 This package makes it easy to download a certificate for a host.
 
 ## Usage
