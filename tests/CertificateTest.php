@@ -13,6 +13,9 @@ class CertificateTest extends \Codeception\Test\Unit
 
     protected function _before()
     {
+        // for testing, initially set the time in the past
+        Carbon::setTestNow(Carbon::parse('first day of july 2019'));
+
         // initialize the certificate
         $rawCertificateFields = json_decode(file_get_contents(__DIR__.'/data/certificate.test.json'), true);
 
@@ -63,9 +66,7 @@ class CertificateTest extends \Codeception\Test\Unit
     /** @test */
     public function it_can_determine_the_days_until_expiry()
     {
-        // set the carbon timestamp to be 2019-07-29
-        Carbon::setTestNow(Carbon::createFromTimestampUTC(1564444073));
-        $this->assertSame(38, $this->sslCert->expiresIn);
+        $this->assertSame(67, $this->sslCert->expiresIn);
     }
 
     /** @test */
