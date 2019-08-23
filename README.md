@@ -1,6 +1,9 @@
 # Easily retrieve the ssl certificate for any host
 
+![Version](https://img.shields.io/github/v/release/joelwmale/php-ssl-certificate)
+![License](https://img.shields.io/github/license/joelwmale/php-ssl-certificate)
 [![Build Status](https://travis-ci.org/joelwmale/php-ssl-certificate.svg?branch=master)](https://travis-ci.org/joelwmale/php-ssl-certificate)
+![Packagist](https://img.shields.io/packagist/dm/joelwmale/php-ssl-certificate)
 
 This package makes it easy to download a certificate for a host.
 
@@ -33,7 +36,7 @@ $certificate->domain; // returns the primary domain on the certificate
 $certificate->additionalDomains; // returns all the additional/alt domains on the certificate
 
 /** @var bool */
-$certificate->isValid; // returns true if valid, false if not 
+$certificate->isValid; // returns true if valid, false if not
 
 /** @var Carbon */
 $certificate->issued; // returns a carbon instance of when the certificate was issued
@@ -45,7 +48,7 @@ $certificate->expires; // returns a carbon instance of when the certificate expi
 $certificate->expiresIn; // returns the amount of days until the certificate expires
 
 /** @var bool */
-$certificate->expired; // returns true if the certificate is expired, false if not 
+$certificate->expired; // returns true if the certificate is expired, false if not
 
 /** @var string */
 $certificate->signatureAlgorithm; // returns the signature algorithm used to sign the certificate
