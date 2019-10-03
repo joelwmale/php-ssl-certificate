@@ -28,7 +28,7 @@
     "require-dev": {
         "codeception/codeception": "^3.0",
         "phpunit/phpunit": "^8.0",
-        "tightenco/collect": "^5.8"
+        "tightenco/collect": "^6.1"
     },
     "autoload": {
         "files": [
