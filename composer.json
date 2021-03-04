@@ -1,5 +1,5 @@
 {
-    "name": "joelwmale/php-ssl-certificate",
+    "name": "fullduplexuk/php-ssl-certificate",
     "description": "Easily retrieve the ssl certificate for any host",
     "keywords": [
         "joelwmale",
