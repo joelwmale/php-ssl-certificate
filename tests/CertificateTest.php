@@ -6,12 +6,12 @@ use Carbon\Carbon;
 use Joelwmale\SslCertificate\Certificate;
 use Joelwmale\SslCertificate\SslCertificate;
 
-class CertificateTest extends \Codeception\Test\Unit
+class CertificateTest extends \PHPUnit\Framework\TestCase
 {
     /** @var SslCertificate */
     protected $sslCert;
 
-    protected function _before()
+    protected function setUp(): void
     {
         // for testing, initially set the time in the past
         Carbon::setTestNow(Carbon::parse('first day of july 2019'));

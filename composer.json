@@ -8,6 +8,7 @@
         "certificate",
         "laravel"
     ],
+    "version": "2.0.2",
     "homepage": "https://github.com/joelwmale/php-ssl-certificate",
     "license": "MIT",
     "authors": [
@@ -20,15 +21,14 @@
         "sort-packages": true
     },
     "require": {
-        "php": "^7.2",
+        "php": "^7.2|^8.0",
         "ext-intl": "*",
         "ext-json": "*",
-        "nesbot/carbon": "^1.15|^2.0"
+        "nesbot/carbon": "^2.53"
     },
     "require-dev": {
-        "codeception/codeception": "^3.0",
-        "phpunit/phpunit": "^8.0",
-        "tightenco/collect": "^5.8"
+        "phpunit/phpunit": "^9.5",
+        "tightenco/collect": "^7.6"
     },
     "autoload": {
         "files": [
@@ -44,6 +44,6 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/codecept run"
+        "test": "vendor/bin/phpunit"
     }
 }
