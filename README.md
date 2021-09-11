@@ -1,9 +1,9 @@
 # Easily retrieve the ssl certificate for any host
 
-![Version](https://img.shields.io/github/v/release/joelwmale/php-ssl-certificate)
-![License](https://img.shields.io/github/license/joelwmale/php-ssl-certificate)
-[![Build Status](https://travis-ci.org/joelwmale/php-ssl-certificate.svg?branch=master)](https://travis-ci.org/joelwmale/php-ssl-certificate)
-![Packagist](https://img.shields.io/packagist/dm/joelwmale/php-ssl-certificate)
+<a href="https://github.com/joelwmale/php-ssl-certificate/actions"><img src="https://github.com/joelwmale/php-ssl-certificate/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/joelwmale/php-ssl-certificate"><img src="https://img.shields.io/packagist/dt/joelwmale/php-ssl-certificate" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/joelwmale/php-ssl-certificate"><img src="https://img.shields.io/packagist/v/joelwmale/php-ssl-certificate" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/joelwmale/php-ssl-certificate"><img src="https://img.shields.io/packagist/l/joelwmale/php-ssl-certificate" alt="License"></a>
 
 This package makes it easy to download a certificate for a host.
 
