@@ -8,7 +8,7 @@
         "certificate",
         "laravel"
     ],
-    "version": "2.0.0",
+    "version": "2.0.1",
     "homepage": "https://github.com/joelwmale/php-ssl-certificate",
     "license": "MIT",
     "authors": [
