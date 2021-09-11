@@ -66,9 +66,9 @@ class Certificate
         $this->domain = $this->getDomain();
         $this->additionalDomains = $this->getAdditionalDomains();
 
-        $this->valid = $this->isValid();
         $this->issued = Carbon::createFromTimestampUTC($this->rawCertificateFields['validFrom_time_t']);
         $this->expires = Carbon::createFromTimestampUTC($this->rawCertificateFields['validTo_time_t']);
+        $this->valid = $this->isValid();
         $this->expiresIn = (int) Carbon::now()->diff($this->expires)->format('%r%a');
         $this->expired = $this->expires->isPast();
 
