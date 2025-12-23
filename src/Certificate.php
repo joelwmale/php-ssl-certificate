@@ -19,9 +19,6 @@ class Certificate
     /** @var array */
     public $additionalDomains;
 
-    /** @var bool */
-    public $isValid;
-
     /** @var Carbon */
     public $issued;
 
@@ -40,6 +37,9 @@ class Certificate
     /** @var bool */
     public $isSelfSigned;
 
+    /** @var bool */
+    public $valid;
+
     /**
      * Return a new instance of the certificate downloader.
      *
@@ -48,13 +48,11 @@ class Certificate
     public static function forHost(string $host): ?Certificate
     {
         // return the certificate or null if one is not found
-        return (new Download())->setHost($host)->certificate();
+        return (new Download)->setHost($host)->certificate();
     }
 
     /**
      * Constructor.
-     *
-     * @param array $rawCertificateFields
      */
     public function __construct(array $rawCertificateFields)
     {
@@ -78,8 +76,6 @@ class Certificate
 
     /**
      * Return the raw certificate fields.
-     *
-     * @return array
      */
     public function getRawCertificateFields(): array
     {
@@ -88,8 +84,6 @@ class Certificate
 
     /**
      * Get the main domain for the ssl certificate.
-     *
-     * @return string
      */
     public function getDomain(): string
     {
@@ -110,8 +104,6 @@ class Certificate
 
     /**
      * Get the additional domains on the certificate.
-     *
-     * @return array
      */
     public function getAdditionalDomains(): array
     {
@@ -126,8 +118,6 @@ class Certificate
 
     /**
      * Convert the raw certificate fields to a json string.
-     *
-     * @return string
      */
     public function getRawCertificateFieldsAsJson(): string
     {
@@ -136,10 +126,8 @@ class Certificate
 
     /**
      * Determines if the certificate is valid for the url.
-     *
-     * @return bool
      */
-    public function isValid(string $url = null): bool
+    public function isValid(?string $url = null): bool
     {
         if (! Carbon::now()->between($this->issued, $this->expires)) {
             return false;
@@ -154,10 +142,8 @@ class Certificate
 
     /**
      * Determine is the certificate will still be valid at this time.
-     *
-     * @param Carbon $carbon;
      */
-    public function isValidAt(Carbon $carbon, string $url = null): bool
+    public function isValidAt(Carbon $carbon, ?string $url = null): bool
     {
         if ($this->expires->lessThanOrEqualTo($carbon)) {
             return false;
@@ -175,8 +161,8 @@ class Certificate
     {
         // merge main domain with additional domains
         $allDomains = array_merge(
-                $this->getAdditionalDomains(),
-                [$this->getDomain()]
+            $this->getAdditionalDomains(),
+            [$this->getDomain()]
         );
 
         // convert all domains to lower case
@@ -205,10 +191,6 @@ class Certificate
 
     /**
      * Check if the certificate covers the domain.
-     *
-     * @param string $domain
-     *
-     * @return bool
      */
     public function coversDomain(string $domain): bool
     {
@@ -238,10 +220,6 @@ class Certificate
      * @internal
      *
      * Determine if certificate applies to url
-     *
-     * @param string $url
-     *
-     * @return bool
      */
     protected function appliesToUrl(string $url): bool
     {
@@ -278,11 +256,6 @@ class Certificate
      * @internal
      *
      * Determine if the wildcard covers the host domain
-     *
-     * @param string $wildcardHost
-     * @param string $host
-     *
-     * @return bool
      */
     protected function wildcardHostCoversHost(string $wildcardHost, string $host): bool
     {

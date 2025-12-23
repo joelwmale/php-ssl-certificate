@@ -2,12 +2,12 @@
 
 namespace Joelwmale\SslCertificate\Exceptions;
 
-use Joelwmale\SslCertificate\CertificateException;
+use Exception;
 
-class BadHost extends CertificateException
+class BadHost extends Exception
 {
     public function __construct(string $host)
     {
-        parent::__construct("Host {$host} does not exist.");
+        parent::__construct("Failed to download certificate for host {$host}: Host {$host} does not exist.");
     }
 }

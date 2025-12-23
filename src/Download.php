@@ -2,9 +2,12 @@
 
 namespace Joelwmale\SslCertificate;
 
-use Throwable;
-use Joelwmale\SslCertificate\Helpers\Url;
+use Joelwmale\SslCertificate\Exceptions\BadHost;
 use Joelwmale\SslCertificate\Exceptions\CouldNotDownloadCertificate;
+use Joelwmale\SslCertificate\Exceptions\NoCertificateInstalled;
+use Joelwmale\SslCertificate\Exceptions\UnknownError;
+use Joelwmale\SslCertificate\Helpers\Url;
+use Throwable;
 
 class Download
 {
@@ -19,8 +22,6 @@ class Download
 
     /**
      * Set the host to download the certificate for.
-     *
-     * @param string $host
      */
     public function setHost(string $host): self
     {
@@ -38,13 +39,11 @@ class Download
      * Get the first ssl certificate from host.
      *
      * @throws CertificateException
-     *
-     * @return Certificate|null
      */
     public function certificate(): ?Certificate
     {
         if (! $this->host) {
-            throw CertificateException::badHost($this->host);
+            throw new BadHost($this->host);
         }
 
         // parse the host
@@ -59,8 +58,6 @@ class Download
 
     /**
      * Parse the hosts certificates.
-     *
-     * @return array
      */
     public function parseCertificates(): array
     {
@@ -79,6 +76,7 @@ class Download
         $certificates = array_map(function ($certificate) {
             // parse the certificate
             $rawCertificateFields = openssl_x509_parse($certificate);
+
             // create new instance of the certificate
             return new Certificate($rawCertificateFields);
         }, $fullCertificateChain);
@@ -89,8 +87,6 @@ class Download
     /**
      * Load a small https connection to the host
      * to reteive the ssl options.
-     *
-     * @return array
      */
     protected function fetchHost(): array
     {
@@ -122,7 +118,7 @@ class Download
 
         // could not connect to the client
         if (! $client) {
-            throw CouldNotDownloadCertificate::unknownError($this->host, "Could not connect to {$this->host}.");
+            throw new UnknownError($this->host, "Could not connect to {$this->host}.");
         }
 
         // get the paramters from the context stream
@@ -144,15 +140,15 @@ class Download
     {
         // host doesnt exist
         if (str_contains($thrown->getMessage(), 'getaddrinfo failed')) {
-            throw CertificateException::badHost($host);
+            throw new BadHost($host);
         }
 
         // no certificate installed
         if (str_contains($thrown->getMessage(), 'error:14090086')) {
-            throw CertificateException::noCertificateInstalled($host);
+            throw new NoCertificateInstalled($host);
         }
 
         // default to unknown error
-        throw CertificateException::unknownError($host, $thrown->getMessage());
+        throw new UnknownError($host, $thrown->getMessage());
     }
 }

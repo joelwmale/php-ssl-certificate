@@ -5,10 +5,7 @@ namespace Joelwmale\SslCertificate;
 /**
  * Small wrapper around strpos for string contains.
  *
- * @param string       $haystack
- * @param string|array $needles
- *
- * @return bool
+ * @param  string|array  $needles
  */
 function str_contains(string $haystack, $needle): bool
 {
@@ -18,10 +15,7 @@ function str_contains(string $haystack, $needle): bool
 /**
  * Determine if the given string starts with a given substring.
  *
- * @param mixed $haystack
- * @param array $needles
- *
- * @return bool
+ * @param  mixed  $haystack
  */
 function starts_with($haystack, array $needles): bool
 {
@@ -37,10 +31,7 @@ function starts_with($haystack, array $needles): bool
 /**
  * Determine if a given string ends with a given substring.
  *
- * @param string       $haystack
- * @param string|array $needles
- *
- * @return bool
+ * @param  string|array  $needles
  */
 function ends_with(string $haystack, $needles): bool
 {
@@ -55,14 +46,8 @@ function ends_with(string $haystack, $needles): bool
 
 /**
  * Returns the portion of string specified by the start and length parameters.
- *
- * @param string   $string
- * @param int      $start
- * @param int|null $length
- *
- * @return string
  */
-function substr(string $string, int $start, int $length = null): string
+function substr(string $string, int $start, ?int $length = null): string
 {
     return mb_substr($string, $start, $length, 'UTF-8');
 }
