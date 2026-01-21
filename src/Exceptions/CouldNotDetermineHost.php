@@ -4,10 +4,10 @@ namespace Joelwmale\SslCertificate\Exceptions;
 
 use Exception;
 
-class InvalidUrl extends Exception
+class CouldNotDetermineHost extends Exception
 {
     public function __construct(string $url)
     {
-        parent::__construct("{$url} is not a valid url.");
+        parent::__construct("Unable to determine host from url {$url}.");
     }
 }

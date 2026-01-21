@@ -2,12 +2,12 @@
 
 namespace Joelwmale\SslCertificate\Exceptions;
 
-use Joelwmale\SslCertificate\CertificateException;
+use Exception;
 
-class UnknownError extends CertificateException
+class UnknownError extends Exception
 {
     public function __construct(string $host, string $error)
     {
-        parent::__construct("Failed to download certificate for host {$host}: ${error}");
+        parent::__construct("Failed to download certificate for host {$host}: {$error}");
     }
 }

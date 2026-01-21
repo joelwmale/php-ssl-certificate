@@ -2,9 +2,9 @@
 
 namespace Joelwmale\SslCertificate\Exceptions;
 
-use Joelwmale\SslCertificate\CertificateException;
+use Exception;
 
-class NoCertificateInstalled extends CertificateException
+class NoCertificateInstalled extends Exception
 {
     public function __construct(string $host)
     {
