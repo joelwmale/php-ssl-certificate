@@ -1,7 +1,6 @@
 <?php
 
 use Joelwmale\SslCertificate\Certificate;
-use Joelwmale\SslCertificate\Exceptions\NoCertificateInstalled;
 use Joelwmale\SslCertificate\Exceptions\UnknownError;
 
 it('can download a certificate from a normal host', function () {
@@ -28,12 +27,6 @@ it('can download a certificate from a host with weird characters', function () {
 
     expect($sslCert)->toBeInstanceOf(Certificate::class);
 });
-
-// it('correctly throws an exception when no certificate is installed', function () {
-//     // copied host from spatie/ssl-package
-//     expect(fn() => Certificate::forHost('hipsteadresjes.gent'))
-//         ->toThrow(NoCertificateInstalled::class);
-// });
 
 it('throws an exception when host doesnt exist', function () {
     expect(fn () => Certificate::forHost('hostthatdoesntexist.dev'))

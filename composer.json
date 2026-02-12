@@ -5,8 +5,7 @@
         "joelwmale",
         "php",
         "ssl",
-        "certificate",
-        "laravel"
+        "certificate"
     ],
     "homepage": "https://github.com/joelwmale/php-ssl-certificate",
     "license": "MIT",
@@ -23,21 +22,15 @@
         }
     },
     "require": {
-        "php": "^8",
+        "php": "^8.2",
         "ext-intl": "*",
-        "ext-json": "*",
-        "larapack/dd": "^1.1",
         "nesbot/carbon": "^3.11"
     },
     "require-dev": {
-        "illuminate/collections": "^12.43",
         "laravel/pint": "^1.26",
         "pestphp/pest": "^4.2"
     },
     "autoload": {
-        "files": [
-            "src/helpers.php"
-        ],
         "psr-4": {
             "Joelwmale\\SslCertificate\\": "src"
         }
@@ -48,6 +41,7 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/pest",
+        "lint": "vendor/bin/pint"
     }
 }

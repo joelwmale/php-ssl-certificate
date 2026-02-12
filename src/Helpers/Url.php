@@ -1,65 +1,55 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Joelwmale\SslCertificate\Helpers;
 
-use function Joelwmale\SslCertificate\starts_with;
+use Joelwmale\SslCertificate\Exceptions\CouldNotDetermineHost;
 use Joelwmale\SslCertificate\Exceptions\InvalidUrl;
 
 class Url
 {
-    /** @var array */
-    protected $parsedUrl;
+    /** @var array<string, string|int> */
+    private readonly array $parsedUrl;
 
     /**
-     * Construct the Url class.
-     *
-     * @param string $host
-     *
      * @throws InvalidUrl
+     * @throws CouldNotDetermineHost
      */
     public function __construct(string $url)
     {
-        // add https to the url
-        if (! starts_with($url, ['http://', 'https://', 'ssl://'])) {
+        if (! str_starts_with($url, 'http://') && ! str_starts_with($url, 'https://') && ! str_starts_with($url, 'ssl://')) {
             $url = "https://{$url}";
         }
 
-        // convert the domain name to ascii format
-        if (function_exists('idn_to_ascii') && strlen($url) < 61) {
-            $url = idn_to_ascii($url, false, INTL_IDNA_VARIANT_UTS46);
+        if (function_exists('idn_to_ascii')) {
+            $parsed = parse_url($url);
+
+            if (isset($parsed['host'])) {
+                $asciiHost = idn_to_ascii($parsed['host'], 0, INTL_IDNA_VARIANT_UTS46);
+
+                if ($asciiHost !== false) {
+                    $url = str_replace($parsed['host'], $asciiHost, $url);
+                }
+            }
         }
 
-        // if the url is invalid
         if (! filter_var($url, FILTER_VALIDATE_URL)) {
-            // throw an exception
-            throw InvalidUrl::couldNotValidate($url);
+            throw new InvalidUrl($url);
         }
 
-        // parse the url
         $this->parsedUrl = parse_url($url);
 
-        // if we didn't parse the host
         if (! isset($this->parsedUrl['host'])) {
-            // throw an exception
-            throw InvalidUrl::couldNotDetermineHost($this->url);
+            throw new CouldNotDetermineHost($url);
         }
     }
 
-    /**
-     * Get the host from the parsed url.
-     *
-     * @return string
-     */
     public function getHost(): string
     {
         return $this->parsedUrl['host'];
     }
 
-    /**
-     * Get the port.
-     *
-     * @return int
-     */
     public function getPort(): int
     {
         return $this->parsedUrl['port'] ?? 443;

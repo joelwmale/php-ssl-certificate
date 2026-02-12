@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - Unreleased
+
+### Changed
+- Minimum PHP version raised to 8.2
+- All properties on `Certificate` are now `readonly`
+- All source files use `declare(strict_types=1)`
+- Typed properties and return types throughout
+- Custom string helpers replaced with PHP 8 builtins
+- CI matrix now tests PHP 8.2, 8.3, 8.4, 8.5
+
+### Fixed
+- `ends_with()` calling undefined `length()` function (broke `coversDomain()`)
+- `Url` constructor referencing non-existent `$this->url` property
+- `Url` constructor calling non-existent static factory methods on `InvalidUrl`
+- `idn_to_ascii()` applied to full URL instead of hostname only
+- `containsDomain()` using `collect()` from dev-only `illuminate/collections`
+- Unused `CouldNotDownloadCertificate` import in `Download`
+- `composer test` script now correctly runs Pest instead of PHPUnit
+- PHPUnit XML config updated for PHPUnit 11+ compatibility
+
+### Removed
+- `larapack/dd` production dependency
+- `illuminate/collections` dev dependency
+- `ext-json` requirement (built-in since PHP 8.0)
+- Custom `helpers.php` string functions (`str_contains`, `starts_with`, `ends_with`, `substr`)
+
 ## [3.0.1] - 2026-01-21
 
 ### Changed

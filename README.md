@@ -7,6 +7,13 @@
 
 This package makes it easy to download a certificate for a host.
 
+## Version Compatibility
+
+| PHP Version | Package Version |
+|-------------|-----------------|
+| 8.2+        | 4.x             |
+| 8.0 - 8.1   | 3.x             |
+
 ## Usage
 
 ```php
@@ -25,36 +32,19 @@ composer require joelwmale/php-ssl-certificate
 
 ## Available Properties & Methods
 
+All properties are `readonly`.
+
 ```php
-/** @var string */
-$certificate->issuer; // returns the issuer of the certificate
-
-/** @var string */
-$certificate->domain; // returns the primary domain on the certificate
-
-/** @var array */
-$certificate->additionalDomains; // returns all the additional/alt domains on the certificate
-
-/** @var bool */
-$certificate->isValid; // returns true if valid, false if not
-
-/** @var Carbon */
-$certificate->issued; // returns a carbon instance of when the certificate was issued
-
-/** @var Carbon */
-$certificate->expires; // returns a carbon instance of when the certificate expires
-
-/** @var int */
-$certificate->expiresIn; // returns the amount of days until the certificate expires
-
-/** @var bool */
-$certificate->expired; // returns true if the certificate is expired, false if not
-
-/** @var string */
-$certificate->signatureAlgorithm; // returns the signature algorithm used to sign the certificate
-
-/** @var bool */
-$certificate->isSelfSigned; // returns true if the certificate was self signed
+$certificate->issuer;              // string - the issuer of the certificate
+$certificate->domain;              // string - the primary domain on the certificate
+$certificate->additionalDomains;   // array  - all the additional/alt domains on the certificate
+$certificate->valid;               // bool   - true if valid, false if not
+$certificate->issued;              // Carbon - when the certificate was issued
+$certificate->expires;             // Carbon - when the certificate expires
+$certificate->expiresIn;           // int    - days until the certificate expires
+$certificate->expired;             // bool   - true if the certificate is expired
+$certificate->signatureAlgorithm;  // string - the signature algorithm used to sign the certificate
+$certificate->isSelfSigned;        // bool   - true if the certificate was self signed
 ```
 
 ### Get raw certificate as JSON
@@ -72,7 +62,7 @@ Takes a Carbon instance as the first parameter.
 $certificate->isValidAt(Carbon::today()->addMonth(1));
 ```
 
-### Determining if certificate contains/convers a domain
+### Determining if certificate contains/covers a domain
 
 Returns true if the certificate contains the domain
 
