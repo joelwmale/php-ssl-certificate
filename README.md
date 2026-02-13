@@ -1,6 +1,6 @@
 # Easily retrieve the ssl certificate for any host
 
-<a href="https://github.com/joelwmale/php-ssl-certificate/actions"><img src="https://github.com/joelwmale/php-ssl-certificate/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/joelwmale/php-ssl-certificate/actions/workflows/tests.yml"><img src="https://github.com/joelwmale/php-ssl-certificate/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/joelwmale/php-ssl-certificate"><img src="https://img.shields.io/packagist/dt/joelwmale/php-ssl-certificate" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/joelwmale/php-ssl-certificate"><img src="https://img.shields.io/packagist/v/joelwmale/php-ssl-certificate" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/joelwmale/php-ssl-certificate"><img src="https://img.shields.io/packagist/l/joelwmale/php-ssl-certificate" alt="License"></a>
