@@ -1,47 +1,48 @@
 {
-    "name": "joelwmale/php-ssl-certificate",
-    "description": "Easily retrieve the ssl certificate for any host",
-    "keywords": [
-        "joelwmale",
-        "php",
-        "ssl",
-        "certificate"
-    ],
-    "homepage": "https://github.com/joelwmale/php-ssl-certificate",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Joel Male",
-            "email": "joel@joelmale.com"
-        }
-    ],
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
-    },
-    "require": {
-        "php": "^8.2",
-        "ext-intl": "*",
-        "nesbot/carbon": "^3.11"
-    },
-    "require-dev": {
-        "laravel/pint": "^1.26",
-        "pestphp/pest": "^4.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "Joelwmale\\SslCertificate\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/pest",
-        "lint": "vendor/bin/pint"
+  "name": "joelwmale/php-ssl-certificate",
+  "description": "Easily retrieve the ssl certificate for any host",
+  "keywords": [
+    "joelwmale",
+    "php",
+    "ssl",
+    "certificate"
+  ],
+  "homepage": "https://github.com/joelwmale/php-ssl-certificate",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Joel Male",
+      "email": "joel@joelmale.com"
     }
+  ],
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "require": {
+    "php": "^8.2",
+    "ext-intl": "*",
+    "nesbot/carbon": "^3.11"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.26",
+    "pestphp/pest": "^4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Joelwmale\\SslCertificate\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest",
+    "lint": "vendor/bin/pint"
+  },
+  "version": "4.0.0"
 }
