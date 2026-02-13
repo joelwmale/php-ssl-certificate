@@ -8,12 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [4.0.0] - 2026-02-13
 
 ### Changed
-- Minimum PHP version raised to 8.2
+- Minimum PHP version raised to 8.3
 - All properties on `Certificate` are now `readonly`
 - All source files use `declare(strict_types=1)`
 - Typed properties and return types throughout
 - Custom string helpers replaced with PHP 8 builtins
-- CI matrix now tests PHP 8.2, 8.3, 8.4, 8.5
+- CI matrix now tests PHP 8.3, 8.4, 8.5
 
 ### Fixed
 - `ends_with()` calling undefined `length()` function (broke `coversDomain()`)

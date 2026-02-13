@@ -11,8 +11,8 @@ This package makes it easy to download a certificate for a host.
 
 | PHP Version | Package Version |
 |-------------|-----------------|
-| 8.2+        | 4.x             |
-| 8.0 - 8.1   | 3.x             |
+| 8.3+        | 4.x             |
+| 8.0 - 8.2   | 3.x             |
 
 ## Usage
 
