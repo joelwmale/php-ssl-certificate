@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.0.0] - Unreleased
+## [4.0.0] - 2026-02-13
 
 ### Changed
 - Minimum PHP version raised to 8.2
@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PHPUnit XML config updated for PHPUnit 11+ compatibility
 
 ### Removed
-- `larapack/dd` production dependency
+- `larapack/dd` dev dependency
 - `illuminate/collections` dev dependency
 - `ext-json` requirement (built-in since PHP 8.0)
 - Custom `helpers.php` string functions (`str_contains`, `starts_with`, `ends_with`, `substr`)
