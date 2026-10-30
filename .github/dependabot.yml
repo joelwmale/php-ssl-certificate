@@ -6,3 +6,7 @@ updates:
     interval: daily
     time: "19:00"
   open-pull-requests-limit: 10
+  ignore:
+  # Pest 5 requires PHP 8.4+, but this package supports 8.3
+  - dependency-name: pestphp/pest
+    update-types: ["version-update:semver-major"]
