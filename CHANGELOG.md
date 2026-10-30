@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [4.0.1] - 2026-10-31
 
 ### Changed
-- Updated dev dependencies (Pest 4.7, Pint 1.32) and lockfile
+- Updated dependencies (Carbon 3.15, Pest 4.7, Pint 1.32) and lockfile
 - Dependabot ignores Pest major releases while PHP 8.3 is supported (Pest 5 requires PHP 8.4)
 
 ## [4.0.0] - 2026-02-13
